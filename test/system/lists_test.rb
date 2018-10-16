@@ -15,6 +15,7 @@ class ListsTest < ApplicationSystemTestCase
     click_on "New List"
 
     fill_in "Name", with: @list.name
+    fill_in "User", with: @list.user_id
     click_on "Create List"
 
     assert_text "List was successfully created"
@@ -26,6 +27,7 @@ class ListsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Name", with: @list.name
+    fill_in "User", with: @list.user_id
     click_on "Update List"
 
     assert_text "List was successfully updated"

@@ -16,6 +16,7 @@ class TasksTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @task.description
     fill_in "Limit", with: @task.limit
+    fill_in "List", with: @task.list_id
     fill_in "Status", with: @task.status
     click_on "Create Task"
 
@@ -29,6 +30,7 @@ class TasksTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @task.description
     fill_in "Limit", with: @task.limit
+    fill_in "List", with: @task.list_id
     fill_in "Status", with: @task.status
     click_on "Update Task"
 
