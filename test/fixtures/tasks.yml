@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  description: MyString
+  limit: 2018-10-16
+
+two:
+  status: MyString
+  description: MyString
+  limit: 2018-10-16
