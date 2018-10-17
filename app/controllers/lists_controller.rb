@@ -1,15 +1,20 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   # GET /lists
   # GET /lists.json
-  def index
-    @lists = List.all
+  def index 
+    # byebug
+    @lists = current_user.lists
+
+    render layout: "application2"
   end
 
   # GET /lists/1
   # GET /lists/1.json
   def show
+    render template: "tasks/task_view"
   end
 
   # GET /lists/new
@@ -69,6 +74,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, :user_id)
+      params.require(:list).permit(:name).merge(:user_id => current_user.id)
     end
 end

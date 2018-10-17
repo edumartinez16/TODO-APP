@@ -8,33 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <%= yield %>
+  
   <body>
     <header>
-    <%= link_to "Rails Blog", root_path %>
-    <nav>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "Users", '#' %></li>
-          <li>
-            <a href="#">Account</a>
-            <ul>
-              <li><%= link_to "Profile", '#' %></li>
-              <li><%= link_to "Settings", '#' %></li>
-              <li>
-                <%= link_to "Log out", destroy_user_session_path , method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", user_session_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </header>
-  <% flash.each do |message_type, message| %>
-  <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-  <% end %>    
+      <h1>Already have an account? <%= link_to "Sign in now!", user_session_path %> <h1/>
+    </header>
+    <%= yield %>
+    <% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>    
   </body>
 </html>
