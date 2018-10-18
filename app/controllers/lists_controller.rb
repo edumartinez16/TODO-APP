@@ -14,7 +14,7 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    render template: "tasks/task_view"
+    @tasks = @list.tasks
   end
 
   # GET /lists/new
