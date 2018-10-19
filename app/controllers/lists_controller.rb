@@ -5,9 +5,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index 
-    # byebug
     @lists = current_user.lists
-
     render layout: "application2"
   end
 

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lists</h1>
+<h1 class="text-center">Lists</h1>
 
 <table>
   <thead>
@@ -22,7 +22,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= image_tag current_user.avatar.variant(resize: "100x100") %>
 <br>
 
 <%= link_to 'New List', new_list_path %>
