@@ -11,6 +11,7 @@ class ListsController < ApplicationController
       format.pdf { render template: 'lists/pdf', pdf: 'pdf'}
       format.csv {send_data @lists.to_csv, filename: "csv-#{Date.today}.csv" }
     end
+    
   end
 
   # GET /lists/1

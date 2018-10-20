@@ -13,10 +13,15 @@
       <div class="col-2">
         <h4><%= list.name %></h4>
       </div>
-      <div class="col-2 d-flex justify-content-between offset-1">
+      <div class="col-3 d-flex justify-content-between offset-1">
         <%= link_to 'Show', list %>
         <%= link_to 'Edit', edit_list_path(list) %>
         <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div class="row">
+          <div class="col-2 d-flex justify-content-between offset-1">
+            <%= link_to 'New Task', new_task_path %>
+          </div>
+        </div>
       </div>
     </div>
     <% list.tasks.each do |task| %>
@@ -32,6 +37,9 @@
     <hr>
   <% end %>
   <br>
+  
+  <p><%= link_to('Generate Report PDF', lists_path(format: 'pdf')) %></p>
+  <p><%= link_to('Generate Report CSV', lists_path(format: 'csv')) %></p>
   <h3><%= link_to 'New List', new_list_path %></h3>
 </div>
 
