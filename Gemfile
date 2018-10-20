@@ -28,6 +28,8 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'nested_scaffold'
 gem 'mini_magick'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

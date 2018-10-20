@@ -1,11 +1,14 @@
 <div class='container'>
-  <div class='row'>
+  <div class='row mt-5'>
     <div class='col-4 offset-4'>
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title text-center">Login</h5>
           <button class="btn btn-success mx-auto d-flex">
             <%= link_to 'Sign up now!', new_user_registration_path, :class => "btn", :style=> 'color:#FFFFFF;'%>
+          </button>
+          <button class="btn btn-success mx-auto d-flex mt-2">
+            <%= link_to 'Sign in now!', user_session_path, :class => "btn", :style=> 'color:#FFFFFF;'%>
           </button>
         </div>
       </div>

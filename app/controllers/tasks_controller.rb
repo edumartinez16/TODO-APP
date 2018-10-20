@@ -6,16 +6,19 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    render layout: "application"
   end
 
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    render layout: "application"
   end
 
   # GET /tasks/new
   def new
     @task = Task.new
+    render layout: "application"
   end
 
   # GET /tasks/1/edit

@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @task.status %>
-</p>
-
-<p>
   <strong>Description:</strong>
   <%= @task.description %>
 </p>
@@ -21,4 +16,4 @@
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Back', lists_path %>

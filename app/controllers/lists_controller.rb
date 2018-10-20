@@ -6,29 +6,35 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index 
     @lists = current_user.lists
-    render layout: "application2"
+    respond_to do |format|
+      format.html
+      format.pdf { render template: 'lists/pdf', pdf: 'pdf'}
+      format.csv {send_data @lists.to_csv, filename: "csv-#{Date.today}.csv" }
+    end
   end
 
   # GET /lists/1
   # GET /lists/1.json
   def show
     @tasks = @list.tasks
+    render layout: "application"
   end
 
   # GET /lists/new
   def new
     @list = List.new
+    render layout: "application"
   end
 
   # GET /lists/1/edit
   def edit
+    render layout: "application"
   end
 
   # POST /lists
   # POST /lists.json
   def create
     @list = List.new(list_params)
-
     respond_to do |format|
       if @list.save
         format.html { redirect_to @list, notice: 'List was successfully created.' }
