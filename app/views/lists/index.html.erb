@@ -11,26 +11,30 @@
   <% @lists.each do |list| %>
     <div class="row">
       <div class="col-4">
-        <h4><%= list.name %></h4>
-        <%= list.id %>
+        <h4> <%= list.name %> </h4>
+        Id Lista: <%= list.id %>
       </div>
       <div class="col-6 d-flex justify-content-between offset-2">
         <%= link_to 'Show', list %>
         <%= link_to 'Edit', edit_list_path(list) %>
         <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'New Task', new_task_path %>
+        <%= link_to 'New Task', new_task_path(list) %>
       </div>
     </div>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.id %></td>
-        <td><%= task.description %></td>
-        <td><%= task.limit %></td>
-        <td><%= task.list_id %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% list.tasks.each do |task| %>
+      <div class="row">
+        <div class="col-4 offset-1">
+          Id Tarea: <%= task.id %>
+          <%= task.description %>
+          <%= task.limit %>
+        </div>
+          Id Lista:<%= task.list_id %>
+        <div class="col-5">
+          <%#= link_to 'Show', task %>
+          <%= link_to 'Edit', edit_task_path(task) %>
+          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
     <% end %>
     <hr>
   <% end %>

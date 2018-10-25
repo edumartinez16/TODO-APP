@@ -2,7 +2,6 @@
   <% if task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
       <ul>
       <% task.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,20 +10,19 @@
     </div>
   <% end %>
 
+  <h2><%= task = params[:format] %></h2>
   <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
-
+  
   <div class="field">
     <%= form.label :limit %>
     <%= form.date_select :limit %>
   </div>
-
-  <div class="field">
-    <%= form.label :list_id %>
-    <%= form.number_field :list_id %>
-  </div>
+  
+  <%= form.hidden_field :list_id, :value => params[:format]  %>
+  
 
   <div class="actions">
     <%= form.submit %>

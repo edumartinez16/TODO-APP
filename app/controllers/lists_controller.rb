@@ -6,7 +6,6 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index 
     @lists = current_user.lists
-    @tasks = Task.where(list_id: @lists.ids)
     # @tasks = @lists.tasks
     respond_to do |format|
       format.html
