@@ -6,7 +6,7 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+#gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -31,6 +31,10 @@ gem 'mini_magick'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'pry'
+gem 'activejob'
+gem 'sqlite3', group: :development
+gem 'pg', '0.18.1', group: :production
+gem 'rails_12factor', group: :production
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
