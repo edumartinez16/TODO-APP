@@ -1,6 +1,11 @@
-<h1>Editing Task</h1>
+<h1 class="text-center">Editing Task</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-3 col-sm-2 col-2 offset-2">
+      <%= render 'form', task: @task %>
 
-<%= render 'form', task: @task %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', lists_path %>
+      <%#= link_to 'Show', @task %>
+      <p class="text-center"><%= link_to 'Back', lists_path %></p> 
+    </div>  
+  </div>
+</div>

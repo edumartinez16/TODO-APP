@@ -79,7 +79,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: todo_production
+   <<: *default
+   adapter: postgresql
+   database: db/production.sqlite3
   username: todo
   password: <%= ENV['TODO_DATABASE_PASSWORD'] %>

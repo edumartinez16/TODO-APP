@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :tasks
   resources :lists
   root 'home#index'
-  devise_for :users
+  devise_for :users, controllers: 
+  {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
   authenticated :user do
     root to: 'home#index', as: :authenticated_root_path
   end
