@@ -1,30 +1,36 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-8">
       <%= form_with(model: task, local: true) do |form| %>
         <% if task.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-            <ul>
-            <% task.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
+                <div id="error_explanation">
+                  <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+                  <ul>
+                  <% task.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
         <% end %>
+              <%#= task = params[:format] %>
+        <form>
+          <div class="form-group">
+            <%= form.label :description %>
+            <%= form.text_field :description, class: "form-control" %>
+          </div>
+                
+          <div class="form-group">
+            <%= form.label :limit %>
+            <%= form.date_select :limit, class: "form-control" %>
+          </div>
 
-        <h2><%= task = params[:format] %></h2>
-        <div class="field">
-          <%= form.label :description %>
-          <%= form.text_field :description %>
-        </div>
-        
-        <div class="field">
-          <%= form.label :limit %>
-          <%= form.date_select :limit %>
-        </div>
-        
-        <%= form.hidden_field :list_id, :value => params[:format]  %>
-        
-
-        <div class="actions">
-          <%= form.submit %>
-        </div>
+          <%= form.hidden_field :list_id => params[:id]  %>
+                
+            <div class="actions text-center">
+            <%= form.submit "Update", class: "btn btn-primary" %>
+          </div>
+        </form>
       <% end %>
+      </div>
+  </div>
+</div>

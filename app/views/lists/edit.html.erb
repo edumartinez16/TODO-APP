@@ -1,6 +1,12 @@
-<h1>Editing List</h1>
+<div class="container">
+  <h1 class="text-center mt-2">Editing List</h1>
 
-<%= render 'form', list: @list %>
-
-<%= link_to 'Show', @list %> |
-<%= link_to 'Back', lists_path %>
+  <%= render 'form', list: @list %>
+  <div class="row justify-content-center mt-5">
+    <div class="col text-center">
+      <button class="btn btn-secondary">
+        <%= link_to 'Back', :back, :class => "btn", :style=> 'color:#FFFFFF;'%>
+      </button>
+    </div>
+  </div>
+</div>

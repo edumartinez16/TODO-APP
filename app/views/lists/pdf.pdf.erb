@@ -3,41 +3,45 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>To Do Report</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div class="container">
-    <h3>Login as <%= current_user.email %></h3>
-  <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col" colspan="5" class="text-center"><h1 class="text-center">Lists</h1></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @lists.each do |list| %>
-            <tr>
-              <thead class="thead-dark ">
-                <th> <%= list.name %> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-              </thead>
+      <div class="row justify-content-center">
+        <div class="col text-center">
+          <h3>Login as <%= current_user.email %></h3>
+            <table class="table table-striped">
+              <thead>
                 <tr>
-                  <% list.tasks.each do |task| %>
-                    <td> <%= task.description %> </td>
-                    <td> <%= task.limit %> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
+                  <th scope="col" colspan="5" class="text-center"><h1 class="text-center">Lists</h1></th>
                 </tr>
-                  <% end %>
-                </tr>
-          <% end %>
-        </tbody>
-      </table>
-</div>
+              </thead>
+              <tbody>
+                <% @lists.each do |list| %>
+                  <tr>
+                    <thead class="thead-dark ">
+                      <th> <%= list.name %> </th>
+                      <th> </th>
+                      <th> </th>
+                      <th> </th>
+                      <th> </th>
+                    </thead>
+                      <tr>
+                        <% list.tasks.each do |task| %>
+                          <td> <%= task.description %> </td>
+                          <td> <%= task.limit %> </td>
+                          <td> </td>
+                          <td> </td>
+                          <td> </td>
+                      </tr>
+                        <% end %>
+                      </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
