@@ -10,9 +10,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if(@user.save)
+      ApplicationMailer.sample_email(@user).deliver_later(wait_until: 1.minutes.from_now)
+    end
+  end
 
   # GET /resource/edit
   # def edit
