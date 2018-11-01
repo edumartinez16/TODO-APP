@@ -2,12 +2,13 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
       @user = user
-      mail(   :to      => @user.email,
-              :subject => "Welcome"
-      ) do |format|
-        format.text
-        format.html
-      end
+      mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+      # mail(   :to      => @user.email,
+      #         :subject => "Welcome"
+      # ) do |format|
+      #   format.text
+      #   format.html
+      # end
     end
   end
 

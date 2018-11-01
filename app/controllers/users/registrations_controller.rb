@@ -12,8 +12,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    if(@user.save)
-      ApplicationMailer.sample_email(@user).deliver_later(wait_until: 1.minutes.from_now)
+    #@user = User.new(user_params)
+    if @user.save
+      UserMailer.welcome_email(@user).deliver_now
+      #ApplicationMailer.sample_email(@user).deliver_later(wait_until: 1.minutes.from_now)
     end
   end
 

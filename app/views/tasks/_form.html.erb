@@ -24,7 +24,12 @@
             <%= form.date_select :limit, class: "form-control" %>
           </div>
 
-          <%= form.hidden_field :list_id => params[:id]  %>
+          <div class="form-group">
+            <%= form.label :list_id %>
+            
+            <%= form.collection_select :list_id, @lists.map, :id, :name, :required => true %>
+          </div>
+          <%#= form.hidden_field :list_id => params[:id]  %>
                 
             <div class="actions text-center">
             <%= form.submit "Update", class: "btn btn-primary" %>
