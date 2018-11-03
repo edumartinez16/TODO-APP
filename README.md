@@ -1,6 +1,6 @@
 # TODO App
 
-This is the exercise for the second assignment of MagmaLabs which consists in creating a todo app with the following features>
+This is the exercise for the second assignment of MagmaLabs which consists in creating a todo app with the following features:
 * Users should login.
 * Users can CRUD lists.
 * Users can CRUD taks on a list.
