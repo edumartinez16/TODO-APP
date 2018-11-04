@@ -36,6 +36,7 @@ gem 'sqlite3', group: :development
 gem 'pg', '0.18.1', group: :production
 gem 'rails_12factor', group: :production
 gem 'sidekiq'
+gem 'whenever', require: false
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
