@@ -1,36 +1,43 @@
+# frozen_string_literal: true
+
+# Controller for the lists in the app
 class ListsController < ApplicationController
+  # Filter to require that the user signs in first
   before_action :authenticate_user!
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  # Filter the member actions
+  before_action :set_list, only: %i[show edit update destroy]
 
   # GET /lists
   # GET /lists.json
-  def index 
+  def index
     @lists = current_user.lists
-    # @tasks = @lists.tasks
     respond_to do |format|
       format.html
+      # Configuration for the pdf and the csv
       format.pdf { render template: 'lists/pdf', pdf: 'pdf'}
-      format.csv {send_data @lists.to_csv, filename: "csv-#{Date.today}.csv" }
+      format.csv { send_data @lists.to_csv, filename: "csv-#{Date.today}.csv" }
     end
-    
   end
 
   # GET /lists/1
   # GET /lists/1.json
   def show
     @tasks = @list.tasks
-    render layout: "application"
+    # Setting a layout different from the default
+    render layout: 'application'
   end
 
   # GET /lists/new
   def new
     @list = List.new
-    render layout: "application"
+    # Setting a layout different from the default
+    render layout: 'application'
   end
 
   # GET /lists/1/edit
   def edit
-    render layout: "application"
+    # Setting a layout different from the default
+    render layout: 'application'
   end
 
   # POST /lists
@@ -53,7 +60,7 @@ class ListsController < ApplicationController
   def update
     respond_to do |format|
       if @list.update(list_params)
-        format.html { redirect_to @list, notice: 'List was successfully updated.' }
+        format.html { redirect_to @list, notice: 'The List was updated.' }
         format.json { render :show, status: :ok, location: @list }
       else
         format.html { render :edit }
@@ -67,19 +74,20 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
+      format.html { redirect_to lists_url, notice: 'The List was destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_list
-      @list = List.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def list_params
-      params.require(:list).permit(:name).merge(:user_id => current_user.id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_list
+    @list = List.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet.
+  def list_params
+    params.require(:list).permit(:name).merge(user_id: current_user.id)
+  end
 end

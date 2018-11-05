@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for the user registration
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -12,11 +13,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    #@user = User.new(user_params)
-    if @user.save
-      UserMailer.welcome_email(@user).deliver_now
-      #ApplicationMailer.sample_email(@user).deliver_later(wait_until: 1.minutes.from_now)
-    end
+    # Condition to send an email when the user creates a new account
+    UserMailer.welcome_email(@user).deliver_now if @user.save
+    # @user = User.new(user_params)
+    # ApplicationMailer.sample_email(@user).deliver_later(wait_until: 1.minutes.from_now)
   end
 
   # GET /resource/edit

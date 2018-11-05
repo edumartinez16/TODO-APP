@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Model for the Tasks
 class Task < ApplicationRecord
-    belongs_to :list
+  # Setting the relations
+  belongs_to :list
 end

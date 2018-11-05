@@ -1,12 +1,28 @@
+# frozen_string_literal: true
+
+# Model for the Lists
 class List < ApplicationRecord
+  # Setting the relations
   belongs_to :user
   has_many :tasks
+  # Function to set the csv information
   def self.to_csv
-    CSV.generate do |csv|
-      csv << column_names
-      all.each do |product|
-        csv << product.attributes.values_at(*column_names)
+    attributes = %w[name tasks_descriptions]
+    headers = %w[list tasks]
+    CSV.generate(headers: true) do |csv|
+      csv << headers
+      all.each do |list|
+        csv << attributes.map { |attr| list.send(attr) }
       end
     end
+  end
+
+  # Function to get the tasks for every list
+  def tasks_descriptions
+    descriptions = []
+    tasks.each do |task|
+      descriptions.push(task.description)
+    end
+    descriptions.join(', ')
   end
 end
