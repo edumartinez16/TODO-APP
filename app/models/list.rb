@@ -5,6 +5,8 @@ class List < ApplicationRecord
   # Setting the relations
   belongs_to :user
   has_many :tasks
+  validates :name, presence: true, length: { maximum: 50 },
+            uniqueness: { case_sensitive: false }
   # Function to set the csv information
   def self.to_csv
     attributes = %w[name tasks_descriptions]
