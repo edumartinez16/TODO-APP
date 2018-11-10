@@ -14,6 +14,9 @@ class User < ApplicationRecord
             format: { with:	VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
   # after_create :welcome_send
+  
+  private
+  
   def welcome_send
     UserMailer.welcome_email(@user).deliver
     redirect_to root_path, alert: 'Thank you'
