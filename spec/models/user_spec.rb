@@ -37,15 +37,4 @@ RSpec.describe User, type: :model do
   #     expect(@user).not_to be_valid
   #   end
   # end
-
-  it 'email addresses should be unique' do
-    duplicate_user = @user.dup
-    duplicate_user.email = @user.email.upcase
-    @user.save
-    expect(duplicate_user).not_to be_valid
-  end
-  it 'should have avatar image' do
-    @user.avatar.purge
-    expect(@user).not_to be_valid
-  end
 end
