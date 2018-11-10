@@ -21,7 +21,7 @@ You need to have installed Ruby 2.5.1 and Ruby on Rails 5.2.1
 4. Open the page localhost:3000 in your browser.
 ## Running the tests
 
-Still working on it.
+Run the command `rspec` in your console.
 ## Deployment
 
 Still working on it.
