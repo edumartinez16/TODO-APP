@@ -2,6 +2,7 @@
 
 # Configuration for the routes of the app
 require 'sidekiq/web'
+require 'sidekiq/cron/web'
 Rails.application.routes.draw do
   # Adding the resources
   resources :tasks

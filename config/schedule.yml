@@ -1,0 +1,4 @@
+weeklymailer_job: <---- 'nombre de tu job'
+   cron: '*/5 * * * *'
+   class: 'weeklymailer_job'
+   queue: default
